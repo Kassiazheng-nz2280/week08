@@ -1,4 +1,8 @@
 # p5.js multi sketch template
-
-By putting different sketch.js and index.html files in directories we can more easily switch between multiple experiments.
+sketch0:
+I first try t
+sketch1:
+I chose a song called Beginning.
+I first use imovie app to cut the music into 1 minute.
+Then I drag it into the vscode.
 
