@@ -2,8 +2,9 @@ class Button {
   constructor(_label, _x, _y, _onClick) {
     this.button = createButton(_label);
     this.button.position(_x, _y);
-    this.button.style("width", width / 8 + "px");
+    this.button.style("width", width / 22 + "px");
     this.button.style("height", "30px");
+    this.button.style("background-color", "pink");
     this.button.mouseClicked(_onClick);
   }
 
@@ -52,10 +53,9 @@ function setup() {
   buttonY = height - 40;
 
   // init buttons
-  backButton = new Button("⏮", 40, buttonY, backClicked);
-  playButton = new Button("⏵", 80 + width / 8, buttonY, playClicked);
-  stopButton = new Button("■", 120 + width / 4, buttonY, stopClicked);
-  nextButton = new Button("⏭", 160 + 0.375 * width, buttonY, nextClicked);
+  backButton = new Button("⏮", width/6 - (width / 44), buttonY, backClicked);
+  playButton = new Button("❤️", 3*width/6 - (width / 44), buttonY, playClicked);
+  stopButton = new Button("■", 5*width/6 - (width / 44), buttonY, stopClicked);
 
   backButton.doubleClicked(backDoubleClicked);
 
@@ -64,17 +64,16 @@ function setup() {
 }
 
 function draw() {
-  // let's keep this visualization
-  //   but add a blueish color for paused
+  background(61, 113, 255);
   if (song.isPlaying()) {
     background(120, 220, 20, 20);
     playButton.html("▮▮");
   } else if (song.isPaused()) {
     background(20, 120, 220, 20);
-    playButton.html("⏵");
+    playButton.html("❤️");
   } else {
     background(220, 20, 120, 20);
-    playButton.html("⏵");
+    playButton.html("❤️");
   }
 
   if (song.isPlaying()) {
@@ -82,7 +81,15 @@ function draw() {
     let dIndexDelay = floor(tPos * waveDiameters.length + DELAY);
     let dIndex = constrain(dIndexDelay, 0, waveDiameters.length - 1);
     let diam = waveDiameters[dIndex];
-    ellipse(width / 2, height / 2, diam, diam);
+    strokeWeight(1);
+    stroke('pink');
+    ellipse(width / 2, height / 2, diam);
+    ellipse(width * 0.33, height / 2, diam, diam + 100 );
+    ellipse(width * 0.2, height / 2, diam, diam);
+    ellipse(width * 0.1, height / 2, diam, diam + 100 );
+    ellipse(width * 0.66, height / 2, diam, diam + 100 );
+    ellipse(width * 0.8, height / 2, diam, diam);
+    ellipse(width * 0.9, height / 2, diam, diam + 100 );
   }
 }
 
